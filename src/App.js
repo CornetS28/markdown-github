@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Pages
 import home from './pages/home';
@@ -10,14 +10,16 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <Switch>
-            <Route exact path="/" component={home} />
-            <Route
-              exact
-              path="/editor-preview"
-              component={markdownEditorAndPreview}
-            />
-          </Switch>
+          <div className="page-container">
+            <Switch>
+              <Route exact path="/" component={home} />
+              <Route
+                exact
+                path="/editor-preview"
+                component={markdownEditorAndPreview}
+              />
+            </Switch>
+          </div>
         </Router>
       </div>
     );
