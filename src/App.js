@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import themeObjectContent from "./util/theme";
+import "./App.css";
+
+// MUI stuff
+import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
+import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 
 // Pages
 import home from './pages/home';
 import markdownEditorAndPreview from "./pages/markdownEditorAndPreview";
 
+
+const theme = createMuiTheme(themeObjectContent);
 class App extends Component {
   render() {
     return (
-      <div>
+      <MuiThemeProvider theme={theme}>
         <Router>
           <div className="page-container">
             <Switch>
@@ -21,7 +29,7 @@ class App extends Component {
             </Switch>
           </div>
         </Router>
-      </div>
+     </MuiThemeProvider>
     );
   }
 }
