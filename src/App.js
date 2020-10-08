@@ -1,38 +1,30 @@
-import React, { Component } from 'react';
+import React, { createContext, useReducer } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import themeObjectContent from "./util/theme";
-import "./App.css";
-
-// MUI stuff
-import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
-import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
-
-// Pages
-import home from './pages/home';
-import markdownEditorAndPreview from "./pages/markdownEditorAndPreview";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import { initialState, reducer } from "./store/reducer";
 
 
-const theme = createMuiTheme(themeObjectContent);
-class App extends Component {
-  render() {
-    return (
-      <MuiThemeProvider theme={theme}>
-        <Router>
-          <div className="page-container">
-            <Switch>
-              <Route exact path="/" component={home} />
-              <Route
-                exact
-                path="/editor-preview"
-                component={markdownEditorAndPreview}
-              />
-            </Switch>
-          </div>
-        </Router>
-     </MuiThemeProvider>
-    );
-  }
+export const AuthContext = createContext();
+
+function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <AuthContext.Provider
+      value={{
+        state,
+        dispatch
+      }}
+    >
+    <Router>
+      <Switch>
+        <Route path="/login" component={Login}/>
+        <Route path="/" component={Home}/>
+      </Switch>
+    </Router>
+    </AuthContext.Provider>
+  );
 }
 
 export default App;
-
