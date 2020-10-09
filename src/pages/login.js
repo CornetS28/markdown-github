@@ -36,10 +36,6 @@ const styles = (theme) => ({
   textField: {
     margin: "10px auto 10px auto",
   },
-  button: {
-    marginTop: 20,
-    position: "relative",
-  },
   circleProgress: {
     position: "absolute",
     color: theme.palette.dark,
