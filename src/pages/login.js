@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from "prop-types";
 import AppLogo from "../images/logo.png";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 // MUI Stuff
@@ -54,20 +54,25 @@ class login extends Component {
     //   history,
     // } = this.props;
     event.preventDefault();
-   // Add your code here
-  //  ...    
-  // history.push("/editor-preview");
+    // Add your code here
+    //  ...
+    // history.push("/editor-preview");
   };
-   
   
-
   render() {
     const { classes, loading } = this.props;
     return (
       <Grid container className={classes.formWrapper}>
         <Grid item sm />
         <Grid item sm>
-          <img src={AppLogo} alt="markdown" className={classes.logo} />
+          <Button
+            className={classes.button}
+            component={Link}
+            to="/editor-preview"
+          >
+            <img src={AppLogo} alt="markdown" className={classes.logo} />
+          </Button>
+
           <Typography variant="h2" className={classes.loginTitle}>
             Login with GitHub
           </Typography>
