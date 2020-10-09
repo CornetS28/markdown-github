@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import goBack from "../images/arrow-left.svg";
+
 // MUI stuff
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -21,9 +23,14 @@ const styles = (theme) => ({
     fontSize: "20px",
     float: "right",
     marginLeft: "auto",
+    marginRight: 13,
   },
   button3: {
     color: theme.palette.primary.contrastText,
+  },
+  goBackImg: {
+    color: theme.palette.primary.contrastText,
+    width: "20px",
   },
 });
 
@@ -35,7 +42,9 @@ export class MarkdownAndPreviewNavbar extends Component {
         <AppBar>
           <Toolbar className={classes.root}>
             {/* TODO */}
-            <Button className={classes.button}>Markdown Icons goes here</Button>
+            <Button component={Link} to="/" className={classes.button}>
+              <img src={goBack} alt="markdown" className={classes.goBackImg} />
+            </Button>
             <Button
               component={Link}
               to="/login"
