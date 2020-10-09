@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Link from 'react-router-dom/Link';
+import Logo from "../images/logo.png";
 
 // MUI stuff
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -13,6 +14,10 @@ const styles = (theme) => ({
     color: theme.palette.primary.contrastText,
     fontSize: "20px",
   },
+  logoImg: {
+    width: '40px',
+    marginRight: 10,
+  }
 });
 
 class HomeNavbar extends Component {
@@ -26,7 +31,8 @@ class HomeNavbar extends Component {
             component={Link}
             to="/editor-preview"
           >
-            Start Writing
+            <img src={Logo} alt="markdown" className={classes.logoImg} />
+            Start Your Markdown
           </Button>
         </Toolbar>
       </AppBar>
