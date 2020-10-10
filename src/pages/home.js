@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 // Components
 import HomeNavbar from "../components/HomeNavbar";
 
-class home extends Component {
-  render() {
+const home = () => {
     return (
       <div>
         <HomeNavbar />
-        <h1 className="">hello from home</h1>
+        <h1 className="">What this app does</h1>
       </div>
     )
   }
-}
 
-export default home
+export default home;
