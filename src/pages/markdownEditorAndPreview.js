@@ -1,5 +1,5 @@
 import React, {createContext,useReducer } from 'react';
-import reducer from '../util/reducer'
+import reducer from '../util/slateReducer'
 // Components
 import MarkdownAndPreviewNavbar from "../components/MarkdownAndPreviewNavbar";
 import SlateEditor from '../components/SlateEditor'
