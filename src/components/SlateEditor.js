@@ -1,7 +1,6 @@
 import React, {useContext, useMemo, useState, useCallback } from "react";
 import { createEditor,Node } from "slate"
-import { Editor, Transforms, Text } from "slate";
-import { Slate, Editable, withReact,useEditor } from "slate-react";
+import { Slate, Editable, withReact } from "slate-react";
 import {withHistory} from 'slate-history'
 import {Context} from '../pages/markdownEditorAndPreview'
 import ToolBar from "./Toolbar";

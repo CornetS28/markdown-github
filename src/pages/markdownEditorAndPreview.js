@@ -1,4 +1,4 @@
-import React, { Component,createContext,useReducer } from 'react';
+import React, {createContext,useReducer } from 'react';
 import reducer from '../util/reducer'
 // Components
 import MarkdownAndPreviewNavbar from "../components/MarkdownAndPreviewNavbar";
