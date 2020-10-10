@@ -1,5 +1,6 @@
-import React from 'react';
-import {  useSlate } from "slate-react";
+import React,{useEffect} from 'react';
+import { Slate, Editable, withReact, useSlate } from "slate-react";
+import ReactDOM from 'react-dom';
 import Button from "@material-ui/core/Button";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 
