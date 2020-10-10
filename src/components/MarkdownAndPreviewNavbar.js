@@ -35,7 +35,8 @@ export class MarkdownAndPreviewNavbar extends Component {
         <AppBar>
           <Toolbar className={classes.root}>
             {/* TODO */}
-            <Button className={classes.button}>Markdown Icons goes here</Button>
+            <Button className={classes.button}>Write to preview in HTML</Button>
+           
             <Button
               component={Link}
               to="/login"
