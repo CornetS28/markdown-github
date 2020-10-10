@@ -1,12 +1,12 @@
-import React, { Component,createContext,useReducer } from 'react';
-import reducer from '../util/reducer'
+import React, { Component } from 'react';
+
 // Components
 import MarkdownAndPreviewNavbar from "../components/MarkdownAndPreviewNavbar";
-import SlateEditor from '../components/SlateEditor'
-import HtmlEditor from '../components/HtmlEditor'
+
 // MUI Stuff
 import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
+import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 
 const styles = (theme) => ({
   ...theme.palette.primary.main,
@@ -16,11 +16,9 @@ const styles = (theme) => ({
   markdownWrapper: {
     backgroundColor: theme.palette.primary.contrastText,
     height: "calc(100vh - 75px)",
-    overflowY:'scroll'
   },
   previewWrapper: {
     backgroundColor: theme.palette.secondary.light,
-    overflowY:"scroll",
     height: "calc(100vh - 75px)",
   },
   editotAndPreviewContainer: {
@@ -31,42 +29,50 @@ const styles = (theme) => ({
   },
   previewContent: {
     padding: "32px",
-    paddingTop:"3em"
   },
   markdownContent: {
     width: "98%",
     height: "100%",
-   
+    margin: "10px auto auto auto",
     border: 0,
-    outline: "none",
-  
+    outline: "none"
   },
 });
 
-
-  export const Context = createContext()
- function MarkDownEditorAndPreview(props) {
+class markdownEditoAndPreview extends Component {
   
-  const [state,dispatch] = useReducer(reducer,'')
-     const { classes } = props;
+  render() {
+     const { classes } = this.props;
     return (
-      <Context.Provider value = {{state,dispatch}}>
+      <div>
         <MarkdownAndPreviewNavbar />
         <Grid container className={classes.editotAndPreviewContainer}>
           <Grid item sm={6} xs={12} className={classes.markdownWrapper}>
-          <div className = {classes.markdownContent}>
-           <SlateEditor/>
-           </div>
+            <div>
+              <form
+                className={classes.markdownContent}
+                noValidate
+                autoComplete="off"
+              >
+                <div>
+                  <TextareaAutosize
+                    className={classes.markdownContent}
+                    rowsMax={100}
+                    placeholder="Write your markdown here..."
+                  />
+                </div>
+              </form>
+            </div>{" "}
           </Grid>
           <Grid item sm={6} xs={12} className={classes.previewWrapper}>
             <div className={classes.previewContent}>
-              <HtmlEditor/>
+              <p> preview content goes here</p>
             </div>
           </Grid>
         </Grid>
-      </Context.Provider>
+      </div>
     );
   }
+}
 
-
-export default ((withStyles)(styles)(MarkDownEditorAndPreview));
+export default ((withStyles)(styles)(markdownEditoAndPreview));
