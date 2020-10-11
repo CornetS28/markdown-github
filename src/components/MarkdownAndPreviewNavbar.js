@@ -40,13 +40,13 @@ export class MarkdownAndPreviewNavbar extends Component {
             <Button
               component={Link}
               to="/login"
-              className={classes.button3}
+              className={classes.button3,classes.button2}
               startIcon={
                 <Avatar
                   src={"http://pngimg.com/uploads/github/github_PNG87.png"}
                 />
               }
-              className={classes.button2}
+              
             >
               Upload GitHub File
             </Button>

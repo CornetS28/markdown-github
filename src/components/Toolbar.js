@@ -61,7 +61,7 @@ return (<ButtonGroup id="group" style={{marginBottom:'2em',}}>
 <Button variant="contained" onClick={h3}>H3</Button>
 <Button variant="contained" onClick={ul}>UL</Button>
 <Button variant="contained" onClick={ol}>OL</Button>
-<Button variant="contained" onClick={quote}>""</Button>
+<Button variant="contained" onClick={quote}>&quot</Button>
 <Button variant="contained" onClick={code}>CODE</Button>
 <Button variant="contained" onClick={link}>LINK</Button>
 <Button variant="contained" onClick={image}>IMAGE</Button>
