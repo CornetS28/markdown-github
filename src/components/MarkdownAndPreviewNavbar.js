@@ -1,18 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-import { AuthContext } from "../App";
 import goBack from "../images/arrow-left.svg";
-
+import Logout from "./logout";
 
 // MUI stuff
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import withStyles from "@material-ui/core/styles/withStyles";
 import Avatar from "@material-ui/core/Avatar";
 import { makeStyles } from "@material-ui/core/styles";
-import { divider } from "@uiw/react-md-editor/lib/cjs/commands";
 
 const useStyles = makeStyles((theme) => ({
   ...theme.palette.primary.main,
@@ -39,23 +36,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MarkdownAndPreviewNavbar() {
-  const { state, dispatch } = useContext(AuthContext);
+const MarkdownAndPreviewNavbar = () => {
   const classes = useStyles();
-  
 
-    const handleLogout = () => {
-      dispatch({
-        type: "LOGOUT",
-      });
-    };
-
-    const logout = () => {
-     if (state.isLoggedIn) {
-   return <div>{handleLogout}</div>;
- }
-    }
- 
   return (
     <div>
       <AppBar>
@@ -63,12 +46,11 @@ export default function MarkdownAndPreviewNavbar() {
           <Button component={Link} to="/" className={classes.button}>
             <img src={goBack} alt="markdown" className={classes.goBackImg} />
           </Button>
-
-          <button onClick={() => logout()}>Logout</button>
+          <Logout />
           <Button
             component={Link}
             to="/login"
-            className={classes.button3}
+
             startIcon={
               <Avatar
                 src={"http://pngimg.com/uploads/github/github_PNG87.png"}
@@ -84,3 +66,4 @@ export default function MarkdownAndPreviewNavbar() {
   );
 }
 
+export default MarkdownAndPreviewNavbar;
