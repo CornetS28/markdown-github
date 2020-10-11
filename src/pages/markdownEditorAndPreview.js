@@ -2,47 +2,71 @@ import React, {createContext,useReducer } from 'react';
 import reducer from '../util/slateReducer'
 // Components
 import MarkdownAndPreviewNavbar from "../components/MarkdownAndPreviewNavbar";
-import MarkdownEditor from '../components/MarkdownEditor';
-import MarkdownPreview from "../components/MarkdownPreview";
-
+import SlateEditor from '../components/SlateEditor'
+import HtmlEditor from '../components/HtmlEditor'
 // MUI Stuff
 import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = (theme) => ({
   ...theme.palette.primary.main,
+  root: {
+    flexGrow: 1,
+  },
+  markdownWrapper: {
+    backgroundColor: theme.palette.primary.contrastText,
+    height: "calc(100vh - 75px)",
+    overflowY:'scroll'
+  },
+  previewWrapper: {
+    backgroundColor: theme.palette.secondary.light,
+    overflowY:"scroll",
+    height: "calc(100vh - 75px)",
+  },
   editotAndPreviewContainer: {
     width: "calc(100% - 0%)",
-  },
-  editotAndPreviewShow: {
-    width: "calc(100% - 0%)",
-    marginTop: "-1%",
+    margin: "auto",
+    marginTop: "-13px",
+    backgroundColor: "yellow",
   },
   previewContent: {
-    backgroundColor: theme.palette.secondary.light,
+    padding: "32px",
+    paddingTop:"3em"
+  },
+  markdownContent: {
+    width: "98%",
+    height: "100%",
+   
+    border: 0,
+    outline: "none",
+  
   },
 });
 
 
-class markdownEditoAndPreview extends Component {
+  export const Context = createContext()
+ function MarkDownEditorAndPreview(props) {
   
-  render() {
-     const { classes } = this.props;
+  const [state,dispatch] = useReducer(reducer,'')
+     const { classes } = props;
     return (
-      <div>
+      <Context.Provider value = {{state,dispatch}}>
         <MarkdownAndPreviewNavbar />
         <Grid container className={classes.editotAndPreviewContainer}>
-          <div className={classes.editotAndPreviewShow}>
-            <MDEditor
-              className={classes.previewContent}
-              value={MarkdownEditor}
-              previewOptions={{ renderers: MarkdownPreview }}
-            />
-          </div>
+          <Grid item sm={6} xs={12} className={classes.markdownWrapper}>
+          <div className = {classes.markdownContent}>
+           <SlateEditor/>
+           </div>
+          </Grid>
+          <Grid item sm={6} xs={12} className={classes.previewWrapper}>
+            <div className={classes.previewContent}>
+              <HtmlEditor/>
+            </div>
+          </Grid>
         </Grid>
-      </div>
+      </Context.Provider>
     );
   }
-}
 
-export default ((withStyles)(styles)(markdownEditoAndPreview));
+
+export default ((withStyles)(styles)(MarkDownEditorAndPreview));

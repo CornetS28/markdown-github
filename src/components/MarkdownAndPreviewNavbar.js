@@ -12,7 +12,6 @@ import Button from "@material-ui/core/Button";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Avatar from "@material-ui/core/Avatar";
 import { makeStyles } from "@material-ui/core/styles";
-import { divider } from "@uiw/react-md-editor/lib/cjs/commands";
 
 const useStyles = makeStyles((theme) => ({
   ...theme.palette.primary.main,
@@ -35,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export class MarkdownAndPreviewNavbar extends Component {
+ class MarkdownAndPreviewNavbar extends React.Component {
   render() {
     const { classes } = this.props
     return (
@@ -65,3 +64,4 @@ export class MarkdownAndPreviewNavbar extends Component {
   }
 }
 
+export default MarkdownAndPreviewNavbar
