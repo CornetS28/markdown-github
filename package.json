@@ -14,7 +14,9 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "slate": "^0.59.0"
+    "slate": "^0.59.0",
+    "slate-history": "^0.59.0",
+    "slate-react": "^0.59.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -24,14 +26,16 @@
   },
   "eslintConfig": {
     "extends": [
+     
       "plugin:react/recommended"
     ],
+   
     "parserOptions": {
       "ecmaVersion": 11,
       "sourceType": "module"
-    },
+     },
     "rules": {
-      "react/prop-types": 0
+      "react/prop-types":0
     }
   },
   "browserslist": {

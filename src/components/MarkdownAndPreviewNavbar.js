@@ -13,7 +13,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Avatar from "@material-ui/core/Avatar";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+const styles = (theme) => ({
   ...theme.palette.primary.main,
   root: {
     flexGrow: 1,
@@ -27,12 +27,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     float: "right",
     marginLeft: "auto",
-    marginRight: 13,
   },
   button3: {
     color: theme.palette.primary.contrastText,
   },
-}));
+});
 
  class MarkdownAndPreviewNavbar extends React.Component {
   render() {
@@ -64,4 +63,4 @@ const useStyles = makeStyles((theme) => ({
   }
 }
 
-export default MarkdownAndPreviewNavbar
+export default ((withStyles)(styles)(MarkdownAndPreviewNavbar));
