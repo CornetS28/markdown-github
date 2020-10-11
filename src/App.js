@@ -1,6 +1,6 @@
-import React, { Component, createContext, useReducer } from 'react';
+import React, { createContext, useReducer } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import { initialState, reducer } from "./store/reducer";
+import { initialState, reducer } from "./store/reducer";
 import themeObjectContent from "./util/theme";
 import "./App.css";
 
@@ -18,15 +18,15 @@ export const AuthContext = createContext();
 
 const theme = createMuiTheme(themeObjectContent);
 
-class App extends Component {
-  // const [state, dispatch] = useReducer(reducer, initialState);
-  render() {
+const App = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  
     return (
       <AuthContext.Provider
-      // value={{
-      //   state,
-      //   dispatch
-      // }}
+      value={{
+        state,
+        dispatch
+      }}
       >
         <MuiThemeProvider theme={theme}>
           <Router>
@@ -46,6 +46,6 @@ class App extends Component {
       </AuthContext.Provider>
     );
   }
-}
+
 
 export default App;
