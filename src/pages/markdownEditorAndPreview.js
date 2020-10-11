@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import MDEditor from "@uiw/react-md-editor";
-
+import React, {createContext,useReducer } from 'react';
+import reducer from '../util/slateReducer'
 // Components
 import MarkdownAndPreviewNavbar from "../components/MarkdownAndPreviewNavbar";
 import MarkdownEditor from '../components/MarkdownEditor';
