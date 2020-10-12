@@ -41,7 +41,7 @@ function quote(){
     
 }
 function code(){
-    editor.insertText('`code`')
+    editor.insertText(```code```)
     
 }
 function link(){
